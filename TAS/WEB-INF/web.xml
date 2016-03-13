@@ -13,13 +13,13 @@
     </servlet-mapping>
 	
     <servlet>
-      <servlet-name> voyageur </servlet-name>
-      <servlet-class> controller.VoyageurController </servlet-class>
+      <servlet-name> compte </servlet-name>
+      <servlet-class> controller.CompteController </servlet-class>
     </servlet>
 	
     <servlet-mapping>
-        <servlet-name> voyageur </servlet-name>
-        <url-pattern> /voyageur </url-pattern>
+        <servlet-name> compte </servlet-name>
+        <url-pattern> /compte </url-pattern>
     </servlet-mapping>  
 	
     <servlet>
@@ -33,13 +33,13 @@
     </servlet-mapping>  
 	
 	<servlet>
-      <servlet-name> billet </servlet-name>
-      <servlet-class> controller.BilletController </servlet-class>
+      <servlet-name> reservation </servlet-name>
+      <servlet-class> controller.ReservationController </servlet-class>
     </servlet>
 	
     <servlet-mapping>
-        <servlet-name> billet </servlet-name>
-        <url-pattern> /billet </url-pattern>
+        <servlet-name> reservation </servlet-name>
+        <url-pattern> /reservation </url-pattern>
     </servlet-mapping>  
 
 </web-app>
