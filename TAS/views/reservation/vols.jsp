@@ -1,13 +1,13 @@
-<%@page import="model.Depart"%>
+<%@page import="model.Vol"%>
 <%@page import="java.util.ArrayList"%>
 <%
-	ArrayList<Depart> departs = (ArrayList<Depart>) request.getAttribute("departs");
+	ArrayList<Vol> vols = (ArrayList<Vol>) request.getAttribute("vols");
 %>
 <!doctype html>
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
-	<title>Les départs</title>
+	<title>Les vols</title>
 	<link rel="icon" href="favicon.ico" />
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="assets/css/bootflat.min.css" />
@@ -17,25 +17,25 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h3>Voici les départs</h3>
-				<% if(departs.isEmpty()){ %>
-					<p>Aucun départ ne correspond à vos critères...</p>
+				<h3>Voici les vols</h3>
+				<% if(vols.isEmpty()){ %>
+					<p>Aucun vol ne correspond à vos critères...</p>
 				<% } else { %>
-				<form class="form-horizontal" action="billet" method="GET">
+				<form class="form-horizontal" action="reservation" method="GET">
 					<input type="hidden" name="action" value="commande" />
-					<% for(Depart d : departs) { 
-						if (d.getCapacite()==0){ %>
+					<% for(Vol v : vols) { 
+						if (v.getCapacite()==0){ %>
 							<input type="radio" name="choix" disabled="disabled">
 							<label for="">
-								Il n'y a plus de place restante pour un
-								<%= d.getLigne().getVilleDepart() %> - <%= d.getLigne().getVilleDestination() %> le <%= d.getDateDep() %>
+								Il n'y a plus de place restante pour un Paris 
+								- <%= v.getDestination() %> le <%= v.getDateDep() %>
 							</label>
 							<% }
 								else {%>
-							<input type="radio" name="choix" value="<%= d.getNumeroDepart() %>" id="d-<%= d.getNumeroDepart() %>">
-							<label for="d-<%= d.getNumeroDepart() %>">
-								<%= d.getCapacite() %> places restantes pour un <%= d.getLigne().getVilleDepart() %> - <%= d.getLigne().getVilleDestination() %>
-								le <%= d.getDateDep() %>
+							<input type="radio" name="choix" value="<%= v.getNumeroDepart() %>" id="v-<%= v.getNumeroDepart() %>">
+							<label for="v-<%= v.getNumeroDepart() %>">
+								<%= v.getCapacite() %> places restantes pour un Paris - <%= v.getDestination() %>
+								le <%= v.getDateDep() %>
 							</label>
 						<% } %><br />
 					<% } %>
