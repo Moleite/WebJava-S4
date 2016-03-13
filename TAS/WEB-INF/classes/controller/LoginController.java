@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.SNGF;
-import model.Voyageur;
-import model.VoyageurIntrouvableException;
+import model.TAS;
+import model.Compte;
+import model.CompteIntrouvableException;
 
 public class LoginController extends HttpServlet {
     
 	private static final long serialVersionUID = 1L;
-	private SNGF sngf = SNGF.getInstance();
+	private TAS tas = TAS.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -26,20 +26,20 @@ public class LoginController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-		String loginVoyageur = request.getParameter("LoginVoyageur");
-		String passVoyageur = request.getParameter("PassVoyageur");
+		String login = request.getParameter("Login");
+		String mdp = request.getParameter("Mdp");
 		HttpSession session = request.getSession();
 		
-		Voyageur user;
+		Compte compte;
 		try {
-			user = sngf.getVoyageur(loginVoyageur, passVoyageur);
-			session.setAttribute("user", user);		
+			compte = tas.getCompte(login, mdp);
+			session.setAttribute("user", compte);		
 			if(session.getAttribute("commande") != null) {
-				response.sendRedirect("billet?action=commande&choix=" + session.getAttribute("commande"));
+				response.sendRedirect("reservation?action=commande&choix=" + session.getAttribute("commande"));
 				return;
 			}
 			response.sendRedirect("home");
-		} catch (VoyageurIntrouvableException e) {
+		} catch (CompteIntrouvableException e) {
 			e.printStackTrace();
 			response.sendRedirect("login?erreur");
 		}
