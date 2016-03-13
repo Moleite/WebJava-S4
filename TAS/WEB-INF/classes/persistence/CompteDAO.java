@@ -32,7 +32,7 @@ public class CompteDAO {
 			e.printStackTrace();
 		}
 		
-		String url = "jdbc:mysql://127.0.0.1/tchou";
+		String url = "jdbc:mysql://127.0.0.1/webjava";
 		String user = "benharka";
 		String pass = "benharka";
 		

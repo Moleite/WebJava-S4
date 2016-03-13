@@ -26,8 +26,8 @@ public class LoginController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-		String login = request.getParameter("Login");
-		String mdp = request.getParameter("Mdp");
+		String login = request.getParameter("login");
+		String mdp = request.getParameter("mdp");
 		HttpSession session = request.getSession();
 		
 		Compte compte;

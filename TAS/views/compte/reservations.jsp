@@ -1,13 +1,13 @@
-﻿<%@page import="model.Billet"%>
+﻿<%@page import="model.Reservation"%>
 <%@page import="java.util.ArrayList"%>
 <%
-	ArrayList<Billet> billets = (ArrayList<Billet>) request.getAttribute("billets");
+	ArrayList<Reservation> reservation = (ArrayList<Reservation>) request.getAttribute("reservations");
 %>
 <!doctype html>
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
-	<title>Vos billets</title>
+	<title>Vos Reservation</title>
 	<link rel="icon" href="favicon.ico" />
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="assets/css/bootflat.min.css" />
@@ -17,27 +17,27 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h3>Voici vos billets</h3>
-				<% if(billets.isEmpty()) { %>
-					<p>Vous n'avez pas encore commandé de billet...</p>
+				<h3>Voici vos Reservation</h3>
+				<% if(reservation.isEmpty()) { %>
+					<p>Vous n'avez pas encore effectué de réservation...</p>
 				<% } else { %>
 					<table class="table">
 						<tr>
-							<th>Numéro du billet</th>
-							<th>Numéro du départ</th>
-							<th>Date du voyage</th>
-							<th>Ville de départ</th>
+							<th>Numéro de la réservation</th>
+							<th>Titulaire de la réservation</th>
+							<th>Numéro de vol</th>
+							<th>Nombre de place(s) réservée(s)</th>
 							<th>Ville d'arrivée</th>
 							<th>Action</th>
 						</tr>
-						<% for(Billet b : billets) { %>
+						<% for(Reservation r : reservation) { %>
 							<tr>
-								<td><%= b.getNumeroBillet() %></td>
-								<td><%= b.getDepart().getNumeroDepart() %></td>
-								<td><%= b.getDepart().getDateDep() %></td>
-								<td><%= b.getDepart().getLigne().getVilleDepart() %></td>
-								<td><%= b.getDepart().getLigne().getVilleDestination() %></td>
-								<td><a href="billet?action=annuler&id=<%= b.getNumeroBillet() %>" class="btn btn-sm btn-danger">Annuler le billet</a></td>
+								<td><%= r.getNumeroReservation() %></td>
+								<td><%= r.getCompte().getNom() %></td>
+								<td><%= r.getVol().getNumeroVol() %></td>
+								<td><%= r.getVol().getCapacite() %></td>
+								<td><%= r.getVol().getDestination() %></td>
+								<td><a href="reservation?action=annuler&id=<%= r.getNumeroReservation() %>" class="btn btn-sm btn-danger">Annuler le billet</a></td>
 							</tr>
 						<% } %>
 					</table>

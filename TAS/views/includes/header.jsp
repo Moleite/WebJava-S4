@@ -7,9 +7,9 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="home">Accueil</a></li>
-				<li><a href="voyageur">Espace client</a></li>
+				<li><a href="compte">Espace client</a></li>
 				<% if(request.getSession().getAttribute("user") != null) { %>
-					<li><a href="voyageur?action=deconnexion">Se déconnecter</a></li>
+					<li><a href="compte?action=deconnexion">Se déconnecter</a></li>
 				<% } %>
 			</ul>
 		</div>

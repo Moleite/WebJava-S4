@@ -6,7 +6,7 @@
 			 <div class="clearfix">
 				<div class="footer-logo"><a href="home"><img src="assets/img/global/logo.png" height="30" /></div>
 				<dl class="footer-nav">
-				   <dt class="nav-title">VOYAGES-SNGF</dt>
+				   <dt class="nav-title">TAS</dt>
 				   <dd class="nav-item"><a href="#">Plan du site</a></dd>
 				   <dd class="nav-item"><a href="#">Aide</a></dd>
 				</dl>
@@ -28,7 +28,7 @@
 				   <dd class="nav-item"><a href="#">Formulaire de contact</a></dd>
 				</dl>
 			 </div>
-			 <div class="footer-copyright text-center">Copyright © 2015 Voyages-SNGF. Tous droits vraiment très très réservés.</div>
+			 <div class="footer-copyright text-center">Copyright © 2016 TAS. Tous droits réservés.</div>
 		  </div>
 	   </div>
 	</div>

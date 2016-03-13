@@ -49,7 +49,7 @@ public class CompteController extends HttpServlet {
 			return;
 		}
 		
-		request.getRequestDispatcher("/views/voyageur/index.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/compte/index.jsp").forward(request, response);
 	}
 
 	/**
@@ -62,16 +62,16 @@ public class CompteController extends HttpServlet {
 	 */
 	private void creerAction(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
-		String login = request.getParameter("Login");
-		String mdp = request.getParameter("Mdp");
-		String nom = request.getParameter("Nom");
-		String prenom = request.getParameter("Prenom");
-		String role = request.getParameter("Role");
+		String login = request.getParameter("login");
+		String mdp = request.getParameter("mdp");
+		String nom = request.getParameter("mom");
+		String prenom = request.getParameter("prenom");
+		
 		
 		if("POST".equals(request.getMethod())) {
 			try {
 				HttpSession session = request.getSession();
-				session.setAttribute("user", tas.ajouterCompte(login, mdp, nom, prenom, role));		
+				session.setAttribute("user", tas.ajouterCompte(login, mdp, nom, prenom, "client"));		
 				if(session.getAttribute("commande") != null) {
 					response.sendRedirect("reservation?action=commande&choix=" + session.getAttribute("commande"));
 					return;
@@ -85,7 +85,7 @@ public class CompteController extends HttpServlet {
 			}
 		}
 		
-		request.getRequestDispatcher("/views/voyageur/creer.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/compte/creer.jsp").forward(request, response);
 	}
 	
 	/**

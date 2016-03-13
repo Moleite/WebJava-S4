@@ -6,7 +6,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
-		<title>Inscription voyageur</title>
+		<title>Inscription compte</title>
 		<link rel="icon" href="favicon.ico" />
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="assets/css/bootflat.min.css" />
@@ -16,7 +16,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4">
-				<h3>Inscription sur Voyages-SNGF</h3>
+				<h3>Inscription sur TAS</h3>
 				<% if(erreur != null && erreur) { %>
 					<div class="alert alert-danger">
 						<p>Ce compte existe déjà !</p>
@@ -27,18 +27,19 @@
 						<p>Votre commande sera validée une fois connecté. Vous possédez déjà un compte ? <a href="login">Connectez-vous ici.</a></p>
 					</div>
 				<% } %>
-				<form method="POST" action="voyageur?action=creer" class="form-horizontal">
-					<label for="LoginVoyageur">Login</label>
-					<input type="text" id="LoginVoyageur" name="LoginVoyageur" placeholder="Login" class="form-control" required="required"/><br />
+				<form method="POST" action="compte?action=creer" class="form-horizontal">
+					<label for="login">Login</label>
+					<input type="text" id="login" name="login" placeholder="Login" class="form-control" required="required"/><br />
 					
-					<label for="PassVoyageur">Mot de passe</label>
-					<input type="password" id="PassVoyageur" name="PassVoyageur" placeholder="Mot de passe" class="form-control" required="required"/><br />
+					<label for="login">Mot de passe</label>
+					<input type="password" id="mdp" name="mdp" placeholder="Mot de passe" class="form-control" required="required"/><br />
 					
-					<label for="NomVoyageur">Nom</label>
-					<input type="text" id="NomVoyageur" name="NomVoyageur" placeholder="Nom" class="form-control" required="required"/><br />
+					<label for="nom">Nom</label>
+					<input type="text" id="nom" name="nom" placeholder="Nom" class="form-control" required="required"/><br />
 					
-					<label for="AdresseVoyageur">Adresse</label>
-					<input type="text" id="AdresseVoyageur" name="AdresseVoyageur" placeholder="Adresse" class="form-control" required="required"/><br />
+					<label for="prenom">Prenom</label>
+					<input type="text" id="prenom" name="prenom" placeholder="Prénom" class="form-control" required="required"/><br />
+									
 					
 					<input type="submit" value="Valider" class="btn btn-primary" />
 				</form>
