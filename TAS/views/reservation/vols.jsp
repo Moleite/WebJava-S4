@@ -32,8 +32,8 @@
 							</label>
 							<% }
 								else {%>
-							<input type="radio" name="choix" value="<%= v.getNumeroDepart() %>" id="v-<%= v.getNumeroDepart() %>">
-							<label for="v-<%= v.getNumeroDepart() %>">
+							<input type="radio" name="choix" value="<%= v.getNumeroVol() %>" id="v-<%= v.getNumeroVol() %>">
+							<label for="v-<%= v.getNumeroVol() %>">
 								<%= v.getCapacite() %> places restantes pour un Paris - <%= v.getDestination() %>
 								le <%= v.getDateDep() %>
 							</label>

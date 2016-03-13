@@ -1,6 +1,7 @@
 package persistence;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,9 +22,26 @@ public class CompteDAO {
 	 * Créer un nouvel accesseur de comptes
 	 */
 	private CompteDAO() {
+//		try {
+//			this.connection = DB_TAS.getConnection();
+//		} catch(Exception e) {e.printStackTrace();}
 		try {
-			this.connection = DB_TAS.getConnection();
-		} catch(Exception e) {e.printStackTrace();}
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		String url = "jdbc:mysql://127.0.0.1/webjava";
+		String user = "benharka";
+		String pass = "benharka";
+		
+		try {
+			this.connection = DriverManager.getConnection(url, user, pass);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/**

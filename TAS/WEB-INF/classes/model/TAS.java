@@ -73,7 +73,7 @@ public class TAS {
 	}
 	
 	/**
-	 * Récupérer l'ensemble des v suivant certains critères
+	 * Récupérer l'ensemble des vols suivant certains critères
 	 * 
 	 * 
 	 * @param villeDestination la ville de destination du vol
@@ -81,8 +81,8 @@ public class TAS {
 	 * @param nbPlace le nombre de place du vol (format jj/mm/yyyy)
 	 * @return une liste de vols
 	 */
-	public List<Vol> getVols(String villeDestination, String dateDebut, int nbPlace, float prix){
-		return volDao.recupererVols(villeDestination, dateDebut, nbPlace, prix);
+	public List<Vol> getVols(String villeDestination, String dateDebut, int nbPlace){
+		return volDao.recupererVols(villeDestination, dateDebut, nbPlace);
 	}
 	
 	/**

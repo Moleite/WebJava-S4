@@ -51,10 +51,10 @@ public class ReservationController extends HttpServlet {
 	private void listerAction(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String villeDestination = request.getParameter("VilleDestination");
 		String dateDepart = request.getParameter("DateDepart");
-		int nbPlaces = Integer.parseInt(request.getParameter("DateDebut"));
-		float prix = Integer.parseInt(request.getParameter("DateFin"));
+		int nbPlaces = Integer.parseInt(request.getParameter("NbPlaces"));
 		
-		ArrayList<Vol> vols  = (ArrayList<Vol>) tas.getVols(villeDestination, dateDepart, nbPlaces, prix);
+		
+		ArrayList<Vol> vols  = (ArrayList<Vol>) tas.getVols(villeDestination, dateDepart, nbPlaces);
 		request.setAttribute("vols", vols);
 			
 		request.getRequestDispatcher("/views/reservation/vols.jsp").forward(request, response);

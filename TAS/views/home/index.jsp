@@ -79,10 +79,8 @@
 							<input class="form-control" type="text" placeholder="14/03/2016" name="DateDebut" id="DateDebut" required="required"/>
 							</div>
 							<br />
-							<label for="">Date du voyage</label>
-							<div class="datepicker ll-skin-nigran hasDatepicker">
-							<input class="form-control" type="text" placeholder="14/03/2016" name="DateFin" id="DateFin" required="required"/>
-							</div>
+							<label for="">Nombre de places</label>
+							<input class="form-control" type="text" placeholder="1" name="NbPlaces" id="NbPlaces" required="required"/>
 							<br />
 							<input type="submit" value="Réserver" class="btn btn-primary" />
 						</form>

@@ -61,7 +61,7 @@ public class VolDAO {
 		throw new VolIntrouvableException();
 	}
 	
-	public List<Vol> recupererVols(String villeDestination, String dateDepart, int nombrePlaces, float prix) {
+	public List<Vol> recupererVols(String villeDestination, String dateDepart, int nombrePlaces) {
 
 		List<Vol> vols = new ArrayList<Vol>();
 		
@@ -89,6 +89,7 @@ public class VolDAO {
 		}
 		return vols;
 	}
+	
 	public Vol trouverVol(Reservation reservation) throws IntrouvableException {
 		try {
 			Vol vol = null;
