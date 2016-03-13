@@ -73,7 +73,7 @@ public class TAS {
 	}
 	
 	/**
-	 * Récupérer l'ensemble des vols suivant certains critères
+	 * Récupérer l'ensemble des v suivant certains critères
 	 * 
 	 * 
 	 * @param villeDestination la ville de destination du vol

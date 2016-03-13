@@ -64,7 +64,7 @@ public class CompteController extends HttpServlet {
 		
 		String login = request.getParameter("login");
 		String mdp = request.getParameter("mdp");
-		String nom = request.getParameter("mom");
+		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		
 		

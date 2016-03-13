@@ -89,7 +89,6 @@ public class VolDAO {
 		}
 		return vols;
 	}
-	
 	public Vol trouverVol(Reservation reservation) throws IntrouvableException {
 		try {
 			Vol vol = null;
