@@ -19,7 +19,7 @@ public class Vol {
 	 * @param numeroDepart numero du vol
 	 * @param destination Destination du vol
 	 * @param dateDep Date de départ du vol
-	 * @param nbPlace Nombre de place du vol
+	 * @param nbPlace Nombre de places du vol
 	 * @param prix Prix du vol
 	 */	
 	public Vol(int numeroDepart, String destination, String dateDep, int nbPlace, float prix) {
@@ -35,7 +35,7 @@ public class Vol {
 	 * 
 	 * @return le numéro du vol
 	 */
-	public int getNumeroDepart() {
+	public int getNumeroVol() {
 		return numeroVol;
 	}
 	
@@ -49,21 +49,30 @@ public class Vol {
 	}
 	
 	/**
-	 * Récupérer le nombre de place du vol
+	 * Récupérer le nombre de places du vol
 	 * 
-	 * @return le nombre de place du vol
+	 * @return le nombre de places du vol
 	 */
 	public int getCapacite() {
 		return nbPlaces;
 	}
 	
 	/**
-	 * Récupérer la ligne de vol
+	 * Récupérer la destination du vol
 	 * 
-	 * @return la ligne de vol
+	 * @return la destination du vol
 	 */
 	public String getDestination() {
 		return destination;
+	}
+	
+	/**
+	 * Récupérer le prix du vol
+	 * 
+	 * @return la ligne de vol
+	 */
+	public Float getPrix() {
+		return prix;
 	}
 	
 }
