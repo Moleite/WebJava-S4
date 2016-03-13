@@ -1,77 +1,93 @@
 package model;
 
 /**
- * Modèle servant de support pour les réservations de vol
+ * ModÃ¨le servant de support pour les billets de trains
  */
 public class Reservation {
 	
 	private int numeroReservation;
+	private Vol vol;
+	private Compte compte;
 	private String login;
 	private int numVol;
 	private int nbPlaces;
 	private boolean confirmation;
+
+	/**
+	 * Instancier un nouveau billet
+	 * 
+	 * @param numeroReserv NumÃ©ro unique du billet
+	 * @param depart DÃ©part associÃ© au billet
+	 * @param voyageur Voyageur possÃ©dant le billet
+	 */
+	public Reservation(int numeroReserv, Vol vol, Compte compte) {
+		this.numeroReservation = numeroReserv;
+		this.vol = vol;
+		this.compte = compte;
+		this.login = compte.getLogin();
+		this.numVol = vol.getNumeroVol();
+		this.confirmation = true;
+	}
+	
+	/**
+	 * Instancier un nouveau billet pour un voyageur non authentifiÃ©
+	 * 
+	 * @param numeroBillet NumÃ©ro unique du billet
+	 * @param depart DÃ©part associÃ© au billet
+	 */
+	public Reservation(int numeroBillet, Vol depart) {
+		this(numeroBillet, depart, null);
+	}
 	
 
 	/**
-	 * Instancier une nouvelle réservation
+	 * RÃ©cupÃ©rer le numÃ©ro unique de la rÃ©servation
 	 * 
-	 * @param numeroReserv Numéro unique de la réservation
-	 * @param login Login de l'utilisateur associé à la réservation
-	 * @param numVol Numéro du vol associé à la réservation
-	 * @param nbPlaces Nombre de place réservées
-	 * @param confirm Confirmation de la réservation
-	 */
-	public Reservation(int numeroReserv, String login, int numVol, int nbPlaces, boolean confirm) {
-		this.numeroReservation = numeroReserv;
-		this.login = login;
-		this.numVol = numVol;
-		this.nbPlaces = nbPlaces;
-		this.confirmation = confirm;
-	}
-	
-	/**
-	 * Instancier une réservation pour un utilisateur non authentifié
-	 * 
-	 * @param numeroReserv Numéro unique de la réservation
-	 * @param numVol Numéro du vol associé à la réservation
-	 * @param nbPlaces Nombre de place réservées
-	 */
-	public Reservation(int numeroReserv, int numVol, int nbPlaces) {
-		this.numeroReservation = numeroReserv;
-		this.numVol = numVol;
-		this.nbPlaces = nbPlaces;
-	}
-	
-	/**
-	 * Récupérer le numéro unique de la réservation
-	 * 
-	 * @return le numéro de la réservation
+	 * @return le numÃ©ro de la rÃ©servation
 	 */
 	public int getNumeroReservation() {
 		return numeroReservation;
 	}
 	
 	/**
-	 * Récupérer le login de l'utilisateur associé à la réservation
-	 * @return le login de l'utilisateur associé à la réservation
+	 * RÃ©cupÃ©rer le dÃ©part associÃ© au billet
+	 * 
+	 * @return le dÃ©part associÃ© au billet
+	 */
+	public Vol getDepart() {
+		return vol;
+	}
+	
+	/**
+	 * RÃ©cupÃ©rer le possesseur(compte) de la rÃ©servation
+	 * 
+	 * @return le compte possÃ©dant la rÃ©servation, ou null s'il n'y en a pas encore
+	 */
+	public Compte getVoyageur() {
+		return compte;
+	}
+	
+	/**
+	 * RÃ©cupÃ©rer le login de l'utilisateur associÃ© Ã  la rÃ©servation
+	 * @return le login de l'utilisateur associÃ© Ã  la rÃ©servation
 	 */
 	public String getLoginReservation() {
 		return login;
 	}
 	
 	/**
-	 * Récupérer le numéro du vol associé à la réservation
+	 * RÃ©cupÃ©rer le numÃ©ro du vol associÃ© Ã  la rÃ©servation
 	 * 
-	 * @return le le numéro du vol associé à la réservation
+	 * @return le le numÃ©ro du vol associÃ© Ã  la rÃ©servation
 	 */
 	public int getNumVolReservation() {
 		return numVol;
 	}
 
 	/**
-	 * Récupérer le nombre de place réservées
+	 * RÃ©cupÃ©rer le nombre de place rÃ©servÃ©es
 	 * 
-	 * @return le nombre de place réservées
+	 * @return le nombre de place rÃ©servÃ©es
 	 */
 	public int getNbPlacesReservation() {
 		return nbPlaces;
@@ -79,17 +95,11 @@ public class Reservation {
 	
 	
 	/**
-	 * Tester si la réservation est confimée
+	 * Tester si la rÃ©servation est confimÃ©e
 	 * 
-	 * @return le statut de la réservation (réservée ou pas)
+	 * @return le statut de la rÃ©servation (rÃ©servÃ©e ou pas)
 	 */
 	public boolean estConfirmee() {
 		return confirmation;
 	}
-
-	
-	
-	
-
-	
 }
