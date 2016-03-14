@@ -23,17 +23,17 @@ public class DBAccess {
 		if(connection != null)
 			return connection;
 		
-	//	Class.forName("oracle.jdbc.OracleDriver");
+		Class.forName("oracle.jdbc.OracleDriver");
 
-	//	String url = "jdbc:oracle:thin:@localhost:1521:XE";
-	//	String user = "system";
-	//	String pass = "michel";
+		String url = "jdbc:oracle:thin:@vs-oracle2:1521:ORCL";
+		String user = "brette";
+		String pass = "brette";
 	
-		Class.forName("com.mysql.jdbc.Driver");
+		//Class.forName("com.mysql.jdbc.Driver");
 		
-		String url = "jdbc:mysql://127.0.0.1/webjava";
-		String user = "benharka";
-		String pass = "benharka";
+		//String url = "jdbc:mysql://127.0.0.1/webjava";
+		//String user = "benharka";
+		//String pass = "benharka";
 		
 		connection = DriverManager.getConnection(url, user, pass);
 		

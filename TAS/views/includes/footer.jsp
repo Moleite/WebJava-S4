@@ -6,7 +6,7 @@
 			 <div class="clearfix">
 				<div class="footer-logo"><a href="home"><img src="assets/img/global/logo.png" height="30" /></div>
 				<dl class="footer-nav">
-				   <dt class="nav-title">TAS</dt>
+				   <dt class="nav-title">OKLM AIR</dt>
 				   <dd class="nav-item"><a href="#">Plan du site</a></dd>
 				   <dd class="nav-item"><a href="#">Aide</a></dd>
 				   <dd class="nav-item"><a href="compte?action=ajouter">ADMIN</a></dd>
