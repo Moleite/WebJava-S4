@@ -111,20 +111,24 @@ public class ReservationDAO {
 	 * @param numeroVol Vol associé à la réservation
 	 * @param compte Compte qui possèdera la réservation 
 	 */
-	public void ajouterReservation(Vol vol, Compte compte) {
+	public void ajouterReservation(Vol vol, Compte compte, int nbPlaces) {
 		try {
-			String requete = "INSERT INTO RESERVATIONS VALUES (?, ?, ?)";
+			String requete = "INSERT INTO RESERVATIONS VALUES (?, ?, ?, ?, ?)";
 			PreparedStatement preparedStatement = this.connection.prepareStatement(requete);
 			synchronized (this.verrou) {
 				preparedStatement.setInt(1, ++ReservationDAO.compteur);
 			}
-			preparedStatement.setInt(2, vol.getNumeroVol());
-			preparedStatement.setString(3, compte.getLogin());
+			preparedStatement.setString(2, compte.getLogin());
+			preparedStatement.setInt(3, vol.getNumeroVol());
+			preparedStatement.setInt(4, nbPlaces);
+			preparedStatement.setBoolean(5, true);
+
 			preparedStatement.executeUpdate();
 			try {
-				String requete2 = "UPDATE VOLS SET NOMBREPLACES = NOMBREPLACES - 1 WHERE NUMEROVOL= ?";
+				String requete2 = "UPDATE VOLS SET NOMBREPLACES = NOMBREPLACES - ? WHERE NUMEROVOL= ?";
 				PreparedStatement preparedStatement2 = this.connection.prepareStatement(requete2);	
-				preparedStatement2.setInt(1, vol.getNumeroVol());
+				preparedStatement2.setInt(1, nbPlaces);
+				preparedStatement2.setInt(2, vol.getNumeroVol());
 				preparedStatement2.executeUpdate();
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -159,4 +163,5 @@ public class ReservationDAO {
 			e.printStackTrace();
 		}	
 	}
+	
 }

@@ -103,14 +103,18 @@ public class TAS {
 		return compte;
 	}
 	
+	public void ajouterVol(String destination, String dateDebut, int nombrePlaces, float prix) {
+		volDao.ajouterVol(destination, dateDebut, nombrePlaces, prix);
+	}
+	
 	/**
 	 * Ajouter une réservation
 	 * 
 	 * @param vol vol de la réservation
 	 * @param compte comtpe futur de la réservation
 	 */
-	public void ajouterReservation(Vol vol, Compte compte) {
-		reservationDao.ajouterReservation(vol, compte);
+	public void ajouterReservation(Vol vol, Compte compte, int nbPlaces) {
+		reservationDao.ajouterReservation(vol, compte, nbPlaces);
 	}
 
 	/**
@@ -129,5 +133,13 @@ public class TAS {
 	 */
 	public static TAS getInstance() {
 		return instance;
+	}
+
+	public Vol ajouterVol(String destination, String date, String nbPlaces,
+			String prix) {
+		Vol vol = new Vol(3, destination, date, nbPlaces, prix);
+		volDao.ajouterVol(destination, date, nbPlaces, prix);
+		return vol;
+		
 	}
 }

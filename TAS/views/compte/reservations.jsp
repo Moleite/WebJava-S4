@@ -37,7 +37,7 @@
 								<td><%= r.getVol().getNumeroVol() %></td>
 								<td><%= r.getVol().getCapacite() %></td>
 								<td><%= r.getVol().getDestination() %></td>
-								<td><a href="reservation?action=annuler&id=<%= r.getNumeroReservation() %>" class="btn btn-sm btn-danger">Annuler le billet</a></td>
+								<td><a href="reservation?action=annuler&id=<%= r.getNumeroReservation() %>" class="btn btn-sm btn-danger">Annuler la réservation</a></td>
 							</tr>
 						<% } %>
 					</table>

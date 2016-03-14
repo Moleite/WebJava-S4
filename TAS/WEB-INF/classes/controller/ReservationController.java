@@ -50,12 +50,14 @@ public class ReservationController extends HttpServlet {
 	 */
 	private void listerAction(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String villeDestination = request.getParameter("VilleDestination");
-		String dateDepart = request.getParameter("DateDepart");
-		int nbPlaces = Integer.parseInt(request.getParameter("DateDebut"));
+		String dateDepart = request.getParameter("DateDebut");
+		String nbPlaces = request.getParameter("NbPlaces");
 		
-		ArrayList<Vol> vols  = (ArrayList<Vol>) tas.getVols(villeDestination, dateDepart, nbPlaces);
+		ArrayList<Vol> vols  = (ArrayList<Vol>) tas.getVols(villeDestination, dateDepart, Integer.parseInt(nbPlaces));
 		request.setAttribute("vols", vols);
-			
+//////////////////////////////////////////////////////
+		request.setAttribute("nbPlaces", nbPlaces);
+/////////////////////////////////////////////////////
 		request.getRequestDispatcher("/views/reservation/vols.jsp").forward(request, response);
 	}
 	
@@ -65,10 +67,10 @@ public class ReservationController extends HttpServlet {
 	 * @throws IOException 
 	 * @throws ServletException 
 	 */
-	private void commandeAction(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public void commandeAction(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String choix = (request.getParameter("choix") == null) ? "0" : request.getParameter("choix");
 		int numeroVol = Integer.parseInt(choix);
-		
+
 		if(!this.estConnecte(request)) {
 			request.getSession().setAttribute("commande", numeroVol);
 			response.sendRedirect("login");
@@ -76,9 +78,14 @@ public class ReservationController extends HttpServlet {
 		}
 		
 		Compte compte = (Compte) request.getSession().getAttribute("user");
+////////////////////////////////////////////////////////////////////////////////////////////
+//		String nbPlacesAttribut = (String) request.getSession().getAttribute("nbPlaces");
+//		int nbPlaces = Integer.parseInt(nbPlacesAttribut);
+		int nbPlaces = 1;
+////////////////////////////////////////////////////////////////////////////////////////////
 		try {
 			Vol vol = tas.getVol(numeroVol);
-			tas.ajouterReservation(vol, compte);
+			tas.ajouterReservation(vol, compte, nbPlaces);
 		} catch (IntrouvableException e) {
 			e.printStackTrace();
 			request.setAttribute("erreur", "Le vol pour lequel vous souhaitez réserver n'a pas été trouvé !");
@@ -103,27 +110,26 @@ public class ReservationController extends HttpServlet {
 		
 		String id = (request.getParameter("id") == null) ? "0" : request.getParameter("id");
 		int numeroReservation = Integer.parseInt(id);
-		long timeNow = System.currentTimeMillis();
+//		long timeNow = System.currentTimeMillis();
 		
 		try {
 			Reservation reservation = tas.getReservation(numeroReservation);
-			String dateDepart = reservation.getVol().getDateDep();
-			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-			Date dateDep;
-			try {
-				dateDep = formatter.parse(dateDepart);
-				long dateDepinMillisec = dateDep.getTime();
-				if(dateDepinMillisec - timeNow > 86400000L){
+//			String dateDepart = reservation.getVol().getDateDep();
+//			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+//			Date dateDep;
+//			try {
+//				dateDep = formatter.parse(dateDepart);
+//				long dateDepinMillisec = dateDep.getTime();
+//				if(dateDepinMillisec - timeNow > 86400000L){
 					tas.removeReservation(reservation);
-				}
-				else{
-					request.setAttribute("erreur", "Il est trop tard pour annuler cette réservation en date du " + (reservation.getVol().getDateDep()) + " !");
-					request.getRequestDispatcher("/views/erreur/500.jsp").forward(request, response);
-					return;
-				}			
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
+//				else{
+//					request.setAttribute("erreur", "Il est trop tard pour annuler cette réservation en date du " + (reservation.getVol().getDateDep()) + " !");
+//					request.getRequestDispatcher("/views/erreur/500.jsp").forward(request, response);
+//					return;
+//				}			
+//			} catch (ParseException e) {
+//				e.printStackTrace();
+//			}
 		} catch (IntrouvableException e) {
 			e.printStackTrace();
 			request.setAttribute("erreur", "La réservation que vous souhaitez annuler n'a pas été trouvé !");

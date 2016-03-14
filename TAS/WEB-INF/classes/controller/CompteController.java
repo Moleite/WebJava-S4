@@ -6,10 +6,12 @@ import java.util.ArrayList;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import model.IntrouvableException;
 import model.Reservation;
 import model.TAS;
 import model.Compte;
 import model.CompteExisteDejaException;
+import model.Vol;
 
 
 public class CompteController extends HttpServlet {
@@ -27,10 +29,12 @@ public class CompteController extends HttpServlet {
 			this.indexAction(request, response);
 		else if(action.equals("creer"))
 			this.creerAction(request, response);
-		else if(action.equals("reservation"))
+		else if(action.equals("reservations"))
 			this.reservationsAction(request, response);
 		else if(action.equals("deconnexion"))
 			this.deconnexionAction(request, response);
+		else if(action.equals("ajouter"))
+			this.ajouterAction(request, response);
 		else
 			request.getRequestDispatcher("/views/erreur/404.jsp").forward(request, response);
 	}
@@ -48,7 +52,6 @@ public class CompteController extends HttpServlet {
 			response.sendRedirect("login");
 			return;
 		}
-		
 		request.getRequestDispatcher("/views/compte/index.jsp").forward(request, response);
 	}
 
@@ -120,6 +123,21 @@ public class CompteController extends HttpServlet {
 	private void deconnexionAction(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		request.getSession().removeAttribute("user");
 		response.sendRedirect("home");
+	}
+	
+	private void ajouterAction(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String destination = request.getParameter("Destination");
+		String date = request.getParameter("DateDebut");
+		String nbPlaces = request.getParameter("NombrePlaces");
+		String prix = request.getParameter("Prix");
+		
+//		int nbPlacesi = Integer.parseInt(nbPlaces);
+//		float prixi = Integer.parseInt(prix);
+		
+		
+		
+		tas.ajouterVol(destination, date, nbPlaces, prix);
+		response.sendRedirect("compte?action=index");
 	}
 	
 	/**

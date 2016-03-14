@@ -28,7 +28,7 @@
 							<div class="price-body">
 								<p>Gérez vos réservations</p>
 							</div>
-							<div class="price-foot"><a href="compte?action=billets" class="btn btn-primary">Consulter</a></div>
+							<div class="price-foot"><a href="compte?action=reservations" class="btn btn-primary">Consulter</a></div>
 						</li>
 					</ul>
 				</div>

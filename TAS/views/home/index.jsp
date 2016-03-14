@@ -40,7 +40,7 @@
 							<p>Bonjour <%= user.getNom() %> !</p>
 							<ul>
 								<li><a href="compte">Votre espace client</a></li>
-								<li><a href="compte?action=reservation">Vos réservations</a></li>
+								<li><a href="compte?action=reservations">Vos réservations</a></li>
 							</ul>
 							<p><a href="compte?action=deconnexion">Se déconnecter</a></p>
 						<% } else { %>

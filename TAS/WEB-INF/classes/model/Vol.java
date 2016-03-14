@@ -30,6 +30,13 @@ public class Vol {
 		this.prix = prix;		
 	}
 	
+	public Vol(int numeroVol, String destination, String date,
+			String nbPlaces, String prix) {
+		this.numeroVol = numeroVol;
+		this.destination = destination;
+		this.dateDepart = date;
+	}
+
 	/**
 	 * Récupérer le numéro unique du vol
 	 * 
