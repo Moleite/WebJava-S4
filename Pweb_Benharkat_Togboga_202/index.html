@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html class="loading">
+	<head>
+		<title>World of City</title>
+		<meta charset="utf-8">
+
+		<!-- jQuery -->
+			<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+			<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
+			<script type="text/javascript" src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+			
+
+
+		<!-- Leaflet -->
+			<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+			<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+		<!-- Google Places -->
+			<script src="http://maps.googleapis.com/maps/api/js?v=3.exp&language=en&signed_in=false&sensor=false&libraries=places"></script>
+		
+		<!-- Firebase -->
+			<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+
+		<!-- Client -->
+			<link rel="stylesheet" href="style.css">
+			<script src="script.js"></script>
+	</head>
+	<body>
+		<div id="disconnected">
+			<div id="bg"></div>
+			
+			<div id="form">
+				<h1>World of City</h1>
+				
+				<div id="menu">
+					<ul>
+						<li><a href="#connect-form">Connexion</a></li>
+						<li><a href="#register-form">Inscription</a></li>
+					</ul>
+					<form id="connect-form">
+						<input type="email" placeholder="Email" required><br>
+						<input type="password" placeholder="Mot de Passe" required><br>
+						
+						<button type="submit" class="button normal">Se connecter</button>
+					</form>
+					<form id="register-form">
+						<input type="email" placeholder="Email" required><br>
+						<input type="password" placeholder="Mot de Passe" required><br>
+						
+						<button type="submit" class="button normal">S'enregistrer</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div id="connected">
+			<div id="loading">
+				<div id="bar"></div>
+			</div>
+
+			<header>
+				<h1>World of City</h1><menu>
+					<div id="account"></div>
+					<button id="gethelp">Aide</button>
+					<button id="logout">Deconnexion</button>
+				</menu>
+			</header>
+
+			<div id="map"></div>
+
+			<div id="infos" class="start">
+				<ul>
+					<li><a href="#list">Liste de villes</a></li>
+					<li><a href="#city">Informations</a></li>
+				</ul>
+
+				<div id="list">
+					<form id="search">
+						<input type="text" placeholder="Touvez votre ville" value=""><button class="button normal">Ajouter</button>
+					</form>
+
+					<ul id="usercities"></ul>
+
+					<ul class="toolbar">
+						 <li id="geolocate" class="button normal">Me localiser !</li>
+					</ul>
+				</div>
+
+				<div id="city">
+					<div id="cityinfo">		
+						<h2></h2>
+
+						<div id="weather"></div>
+
+						<p></p>
+
+						<div id="images"></div>
+					</div>
+
+					<ul class="toolbar">						 
+						<li id="locate" class="button normal">Localiser la ville sur la carte</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="help">
+				<div>
+					<h2>World of City : Aide</h2>
+
+					<p>Réapprendre sa géographie avec World of City ! </p>
+
+					<p>Commencez par glisser l'une des villes à partir de la liste vers
+						la carte pour l'afficher. Si votre ville ne figure pas sur la liste, tapez sur
+						le moteur de recherche de ville et ajouter la ! Vous pouvez ensuite afficher des 
+						informations supplémentaires</p>
+					<footer>World of City &copy; 2016</footer>
+				</div>
+			</div>
+
+			<div id="showcase">
+				<img>
+			</div>
+		</div>
+	</body>
+</html>
