@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo">Cliquer pour afficher vos coordonées:</p>
+<button onclick="getLocation()">Cliquer</button>
+
+<script>
+var p=document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  	else{p.innerHTML="Geolocation non supportée par ce navigateur.";}
+  	}
+
+
+/**
+* showPosition(position) est invoqué par la fct getCurrentPosition(showPosition) de window.navigator.geolocation
+* et position est instancié au moment de l'appel de la fonction, tel que 
+* son attribut coords contient le positionnement du navigateur
+**/	
+function showPosition(position) { 
+	p.innerHTML = "Latitude: " + position.coords.latitude;
+  	p.innerHTML += "<br/>Longitude: " + position.coords.longitude;	
+	p.innerHTML += "Plus ou Moins " + position.coords.accuracy + " mètres.";
+	//console.log("Plus ou Moins " + position.coords.accuracy + " mètres.");
+  }
+</script>
+
+</body>
+</html>

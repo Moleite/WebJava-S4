@@ -1,0 +1,34 @@
+<html> <head>
+<link href="style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+var m;
+function changeBulle(newMsgBulle) {
+var o=window.document.getElementById('MSG');
+o.innerHTML=newMsgBulle;
+}
+</script>
+</head>
+
+<body>
+<h2> Ayez la bonne Bulle !</h2>
+<p style="font-size:0.6em; min-width:10em;"> 
+Choisisez votre texte : 
+<ul style="font-size:0.6em; ">
+<li><a onClick="changeBulle('Bien !')" style="cursor:hand">Bien !</a></li>
+<li><a onClick="changeBulle('Zut !')" style="cursor:hand">Zut !</a></li>
+<li><a onClick="changeBulle('arg !')" style="cursor:hand">arg !</a></li>
+</ul></p><br/>
+<div id="aff">
+		<img id="golf" src="golfeuse.png" 
+				style="display:block; 
+				position:absolute;z-index:0; 
+				top:0; left :0;
+				width:100%; height:100%; "
+				alt="cliquez pour voir mieux"/> 
+		<P id="MSG" style="position:absolute; z-index:1;
+						top:15%; left:58%; margin:0; padding:0;
+						width:70%; height:70%; font-size:0.6em; font-weight:bold;"> ....?.. </P>
+</div> 
+<!--fin div "aff"-->
+</body>
+</html>

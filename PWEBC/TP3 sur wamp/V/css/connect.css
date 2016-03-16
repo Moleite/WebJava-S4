@@ -1,0 +1,35 @@
+/*css de connect*/
+
+* {border:0; margin:0; outline:0; padding:0}
+
+/*div de connexion*/
+#connect {
+	margin-left : 60%;
+}
+
+/*bouton de connexion*/
+#cnx {
+	width:14em; height:2em;
+	color : white;
+	background-color : #248;
+}	
+
+/*formulaire de connexion*/
+#f1 {
+	display:none;
+	width:14em; height:4em;
+	border:1px green solid;
+}
+label{
+	display:inline-block;
+	width:3em; 
+}
+input {
+	border:1px grey solid;
+}
+input[type='submit']{
+	display:inline-block;
+	margin-left:auto;
+	margin-right:auto;
+	background-color : blue;
+}

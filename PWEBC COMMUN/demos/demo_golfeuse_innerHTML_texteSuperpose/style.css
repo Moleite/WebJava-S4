@@ -1,0 +1,31 @@
+/*body {
+width : 200pt;
+height : 70pt;
+	max-width:200pt;
+	max-height:70pt;
+}*/
+body {
+width : 10em;
+height : 10em;
+	max-width:10em;
+	max-height:10em;
+}
+
+h2 {
+	width:10em;
+	min-width:10em;
+	color : green;
+	text-align: left;
+}
+h3 {
+	color : blue;
+	text-align: center;
+}
+
+#aff {	
+	position:absolute; top:10em; left:0pt;
+	height:200pt;
+	width:150pt;
+	margin:0pt;
+	padding:0pt;
+} 

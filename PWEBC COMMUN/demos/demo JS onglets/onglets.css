@@ -1,0 +1,44 @@
+#main  {
+	width: 40em;
+	}
+
+#onglets  {
+	width : inherit;
+	height:inherit;
+	background-color : green ;
+	margin:0;
+	padding : 0;
+	border-left : 0;
+	border-bottom : 1pt white solid ;
+}
+#onglets  li {
+	display: inline-block;
+	border-left : 1pt white solid ;
+	padding-bottom : 5px ;
+	padding-top : 5px ;	width: 30%; 
+	text-align : center ;
+}
+#onglets  li a {	
+	width: 5em; 
+	color : white ;
+	text-transform : uppercase ;
+	text-decoration: none ;
+}
+#vue  {
+	margin:0;
+	padding : 0;
+	position : relative ;
+	width: auto;
+	height : 20em;
+	background-color : green ;
+	border-left : 1pt white solid ;
+	/* border : 1pt black solid ; */
+}
+#vue .form {
+	position : absolute ;
+	top : 0 ;
+	left : 0;
+	width : inherit;
+	height:inherit;
+	border-left : 0 ;
+}

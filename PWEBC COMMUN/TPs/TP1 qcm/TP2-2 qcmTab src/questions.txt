@@ -1,0 +1,13 @@
+
+
+question : quel est l'intrus ?
+choix :  nez, yeux, oreilles
+reponse : 0  
+
+question : Quel est le fruit ?
+choix :  patate, figue, carotte 
+reponse : 1
+ 
+question : Quel musicien ne jouait pas de trompette ?
+choix :  Miles Davis, Dave Brubeck, Boris Vian
+reponse : 1

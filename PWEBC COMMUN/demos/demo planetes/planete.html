@@ -1,0 +1,144 @@
+<SCRIPT>
+	var t_terre=0;
+	var t_lune=0;
+	var t_mercure=0;
+	var t_mars=0;
+	var t_venus=0;
+	var t_phobos=0;
+	var t_deimos=0;
+	
+	function bouger(){
+		bouger_terre();
+		bouger_mercure();
+		bouger_mars();
+		bouger_venus();
+		bouger_lune();
+		bouger_phobos();
+		bouger_deimos();
+		
+	}
+	
+  	function bouger_terre(){
+		var x= 150 * Math.cos(t_terre/365);
+		var y=150 * Math.sin(t_terre/365);
+		
+		t_terre=t_terre+1;	
+		
+		document.getElementById('terre').style.top = 200+y;
+		document.getElementById('terre').style.left = 300+x;
+		setTimeout("bouger_terre()", 10);
+	
+	}
+	
+	function bouger_lune(){
+		var x= 30 * Math.cos(t_lune/27) + parseInt(document.getElementById('terre').style.left);
+		var y= 30 * Math.sin(t_lune/27)  + parseInt(document.getElementById('terre').style.top);
+		
+		t_lune=t_lune+1;	
+		
+		document.getElementById('lune').style.top = y;
+		document.getElementById('lune').style.left = x;
+		setTimeout("bouger_lune()", 10);
+	
+	}
+	
+	
+	function bouger_mercure(){
+		var x= 58 * Math.cos(t_mercure/88);
+		var y=59 * Math.sin(t_mercure/88);
+		
+		t_mercure=t_mercure+1;	
+		
+		document.getElementById('mercure').style.top = 200+y;
+		document.getElementById('mercure').style.left = 300+x;
+		setTimeout("bouger_mercure()", 10);
+	
+	}
+	
+	function bouger_mars(){
+		var x= 228 * Math.cos(t_mars/686);
+		var y=227 * Math.sin(t_mars/686);
+		
+		t_mars=t_mars+1;	
+		
+		document.getElementById('mars').style.top = 200+y;
+		document.getElementById('mars').style.left = 300+x;
+		setTimeout("bouger_mars()", 10);
+	
+	}
+	
+	function bouger_phobos(){
+		var x= 20 * Math.cos(t_phobos/0.4) + parseInt(document.getElementById('mars').style.left);
+		var y= 20 * Math.sin(t_phobos/0.4)  + parseInt(document.getElementById('mars').style.top);
+		
+		t_phobos=t_phobos+1;	
+		
+		document.getElementById('phobos').style.top = y;
+		document.getElementById('phobos').style.left = x;
+		setTimeout("bouger_phobos()", 10);
+	
+	}
+	
+	
+	function bouger_deimos(){
+		var x= 30 * Math.cos(t_deimos/1.2) + parseInt(document.getElementById('mars').style.left);
+		var y= 30 * Math.sin(t_deimos/1.2)  + parseInt(document.getElementById('mars').style.top);
+		
+		t_deimos=t_deimos+1;	
+		
+		document.getElementById('deimos').style.top = y;
+		document.getElementById('deimos').style.left = x;
+		setTimeout("bouger_deimos()", 10);
+	
+	}
+	
+	
+	function bouger_venus(){
+		var x= 109 * Math.cos(t_venus/225);
+		var y=108 * Math.sin(t_venus/225);
+		
+		t_venus=t_venus+1;	
+		
+		document.getElementById('venus').style.top = 200+y;
+		document.getElementById('venus').style.left = 300+x;
+		setTimeout("bouger_venus()", 10);
+	
+	}
+	
+		
+
+</SCRIPT>
+
+
+
+<HTML>
+	<head>
+		<title>planete</title>
+		
+		<style type="text/css">
+			div{border: 1px solid;width:600px;position:relative;height:600px;margin: 1px;padding: 0px;}
+		</style>
+	
+	</head>
+	<BODY onLoad="bouger();" bgcolor="black">
+		
+	
+		
+					<IMG  id="soleil"  src="soleil.gif" style="position:absolute;top:200px;left:300px">	
+					<IMG  id="terre"  src="terre.gif" style="position:absolute;top:0px;left:0px">
+					<IMG  id="lune"  src="lune.gif" style="position:absolute;top:0px;left:0px">
+					
+					<IMG  id="mercure"  src="mercure.gif" style="position:absolute;top:0px;left:0px">
+					<IMG  id="mars"  src="mars.gif" style="position:absolute;top:0px;left:0px">
+					<IMG  id="venus"  src="venus.gif" style="position:absolute;top:0px;left:0px"> 
+					<IMG  id="phobos"  src="phobos.gif" style="position:absolute;top:0px;left:0px">
+					<IMG  id="deimos"  src="deimos.gif" style="position:absolute;top:0px;left:0px">
+			
+			
+			
+		</FORM>
+		
+	
+		
+	</BODY>
+</HTML>
